@@ -101,22 +101,12 @@ The following SQL queries were developed to answer specific business questions:
 
 1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+select * from retail_sales where sale_date='2022-11-05';
 ```
 
 2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
 ```sql
-SELECT 
-  *
-FROM retail_sales
-WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+select * from retail_sales where category='Clothing' and quantiy>=4 and to_char(sale_date,'YYYY-MM')='2022-11';
 ```
 
 3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
