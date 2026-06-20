@@ -138,5 +138,26 @@
 		 from retail_sales
 		 group by shift
 		 order by no_of_orders desc;
-	--End of Project
+	--Highest Revenue Category-
+		select
+			category,
+			 Revenue
+		from 
+			(select category,
+		 	sum(total_sale) as Revenue,
+		 	rank() over(order by sum(total_sale) desc) as rank
+			from retail_sales
+			group by 1 ) as Highest_revenue_Category
+		 WHERE rank=1;
+ -- Customer Age Group Analysis
+ select
+ 	count(*) as No_of_customers ,
+		 case
+		 when age<20  then 'Teen'
+		 when age between 20 and 40 then 'Adult'
+		 else 'Senior'
+		 end as age_group
+	 from retail_sales
+	 group by age_group
+	--End of Project		
 		
